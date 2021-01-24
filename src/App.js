@@ -3,6 +3,7 @@ import ContactUs from './pages/ContactUs';
 import OutWork from './pages/OutWork';
 import GlobalStyle from './components/GlobalStyle';
 import Nav from './components/Nav';
+import MovieDetail from './pages/MovieDetail';
 //Router
 import { Switch, Route } from 'react-router-dom';
 
@@ -15,8 +16,11 @@ function App() {
         <Route path='/' exact>
           <AboutUs />
         </Route>
-        <Route path='/work'>
+        <Route path='/work' exact>
           <OutWork />
+        </Route>
+        <Route path='/work/:id'>
+          <MovieDetail />
         </Route>
         <Route path='/contact'>
           <ContactUs />
