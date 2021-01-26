@@ -1,34 +1,42 @@
 import React from 'react';
 import home1 from '../img/home1.png';
 import { About, Description, Hide, Image } from '../styles';
-//Styled
-// import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { titleAnim, fade, photoAnim } from '../animation';
 
 const AboutSection = () => {
+  // const titleAnim = {
+  //   hidden: { opacity: 0 },
+  //   show: { opacity: 1, transition: { duration: 2 } },
+  // };
+  // const container = {
+  //   hidden: { x: 100 },
+  //   show: { x: 0, transition: { duration: 1, ease: 'easeOut' } },
+  // };
   return (
     <About>
       <Description>
-        <div className='title'>
+        <motion.div className='title'>
           <Hide>
-            <h2>We Work to make</h2>
+            <motion.h2 variants={titleAnim}>We Work to make</motion.h2>
           </Hide>
           <Hide>
-            <h2>
+            <motion.h2 variants={titleAnim}>
               Your <span>Dreams</span> come
-            </h2>
+            </motion.h2>
           </Hide>
           <Hide>
-            <h2>true.</h2>
+            <motion.h2 variants={titleAnim}>true.</motion.h2>
           </Hide>
-          <p>
+          <motion.p variants={fade}>
             Contact us for any photography or videography ideas that you have
             professionals with amazing skills
-          </p>
-          <button>Contact Us</button>
-        </div>
+          </motion.p>
+          <motion.button variants={fade}>Contact Us</motion.button>
+        </motion.div>
       </Description>
       <Image>
-        <img src={home1} alt='guy with a camra' />
+        <motion.img variants={photoAnim} src={home1} alt='guy with a camra' />
       </Image>
     </About>
   );
