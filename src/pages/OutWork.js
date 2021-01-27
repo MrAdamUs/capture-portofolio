@@ -7,23 +7,43 @@ import theracer from '../img/theracer-small.png';
 import goodtimes from '../img/goodtimes-small.png';
 // Import Animation
 import { motion } from 'framer-motion';
-import { pageAnimation } from '../animation';
+import {
+  pageAnimation,
+  fade,
+  photoAnim,
+  lineAnim,
+  slider,
+  sliderContainer,
+} from '../animation';
 
 const OutWork = () => {
   return (
-    <Work exit='exit' variants={pageAnimation} initial='hidden' animate='show'>
+    <Work
+      exit='exit'
+      variants={pageAnimation}
+      initial='hidden'
+      animate='show'
+      style={{ background: '#ebe6e6' }}
+    >
+      <motion.div variants={sliderContainer}>
+        <Frame1 variants={slider}></Frame1>
+        <Frame2 variants={slider}></Frame2>
+        <Frame3 variants={slider}></Frame3>
+        <Frame4 variants={slider}></Frame4>
+      </motion.div>
       <Movie>
         <Link to='/work/the-athlete'>
-          <h2>The Athlate</h2>
-          <div className='lin'></div>
-
-          <img src={athlete} alt='athlete' />
+          <motion.h2 variants={fade}>The Athlate</motion.h2>
+          <motion.div className='line' variants={lineAnim}></motion.div>
+          <Hide>
+            <motion.img variants={photoAnim} src={athlete} alt='athlete' />
+          </Hide>
         </Link>
       </Movie>
       <Movie>
         <Link to='/work/good-times'>
           <h2>The Racer</h2>
-          <div className='lin'></div>
+          <div className='line'></div>
 
           <img src={theracer} alt='thercer' />
         </Link>
@@ -31,7 +51,7 @@ const OutWork = () => {
       <Movie>
         <Link to='/work/the-racer'>
           <h2>Good Times</h2>
-          <div className='lin'></div>
+          <div className='line'></div>
 
           <img src={goodtimes} alt='goodtime' />
         </Link>
@@ -49,7 +69,7 @@ const Work = styled(motion.div)`
   }
   a {
     text-decoration: none;
-    color: white;
+    color: #000;
   }
 `;
 
@@ -57,7 +77,7 @@ const Movie = styled.div`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
-    background: #ccc;
+    background: #23d997;
     margin-bottom: 3rem;
   }
   img {
@@ -65,6 +85,32 @@ const Movie = styled.div`
     height: 70vh;
     object-fit: cover;
   }
+`;
+
+const Hide = styled.div`
+  overflow: hidden;
+`;
+//Fram Animation
+const Frame1 = styled(motion.div)`
+  position: fixed;
+  left: 0;
+  top: 10%;
+  width: 100%;
+  height: 100vh;
+  background: #fffebf;
+  z-index: 2;
+`;
+
+const Frame2 = styled(Frame1)`
+  background: #ff8efb;
+`;
+
+const Frame3 = styled(Frame1)`
+  background: #8ed2ff;
+`;
+
+const Frame4 = styled(Frame1)`
+  background: #8effa0;
 `;
 
 export default OutWork;
