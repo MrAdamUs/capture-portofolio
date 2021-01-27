@@ -5,14 +5,6 @@ import { motion } from 'framer-motion';
 import { titleAnim, fade, photoAnim } from '../animation';
 
 const AboutSection = () => {
-  // const titleAnim = {
-  //   hidden: { opacity: 0 },
-  //   show: { opacity: 1, transition: { duration: 2 } },
-  // };
-  // const container = {
-  //   hidden: { x: 100 },
-  //   show: { x: 0, transition: { duration: 1, ease: 'easeOut' } },
-  // };
   return (
     <About>
       <Description>
