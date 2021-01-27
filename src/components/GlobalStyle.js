@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
 
 button {
   font-weight: bold;
-  font-size: 1.1.rem;
+  font-size: 1.1rem;
   cursor: pointer;
   padding: 1rem 2rem;
   border: 3px solid #23d997;
@@ -29,7 +29,7 @@ button {
 }
 h2 {
   font-weight: lighter;
-  font-size: 3.8rem;
+  font-size: 2.8rem;
 }
 h3{
   color: white;

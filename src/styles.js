@@ -16,6 +16,7 @@ export const Description = styled.div`
   z-index: 2;
   h2 {
     font-weight: lighter;
+    font-size: 2.8rem;
   }
 `;
 
