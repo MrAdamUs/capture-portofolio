@@ -1,19 +1,73 @@
 import React from 'react';
 // Import Animation
 import { motion } from 'framer-motion';
-import { pageAnimation } from '../animation';
+import { pageAnimation, titleAnim } from '../animation';
+import styled from 'styled-components';
 
 const ContactUs = () => {
   return (
-    <motion.div
+    <ContactStyle
       exit='exit'
       variants={pageAnimation}
       initial='hidden'
       animate='show'
+      style={{ background: '#fff' }}
     >
-      <h1>Our Contact </h1>
-    </motion.div>
+      <Title>
+        <Hide>
+          <motion.h2 variants={titleAnim}>Get in touch</motion.h2>
+        </Hide>
+      </Title>
+      <div>
+        <Hide>
+          <Socail variants={titleAnim}>
+            <Circale />
+            <h2>Send Us A messge</h2>
+          </Socail>
+        </Hide>
+        <Hide>
+          <Socail variants={titleAnim}>
+            <Circale />
+            <h2>Send Us an Email</h2>
+          </Socail>
+        </Hide>
+        <Hide>
+          <Socail variants={titleAnim}>
+            <Circale />
+            <h2>Our Facbook</h2>
+          </Socail>
+        </Hide>
+      </div>
+    </ContactStyle>
   );
 };
 
+const ContactStyle = styled(motion.div)`
+  padding: 5rem 10rem;
+  color: #353535;
+  min-height: 90vh;
+`;
+
+const Title = styled.div`
+  margin-bottom: 4rem;
+  color: black;
+`;
+const Hide = styled.div`
+  overflow: hidden;
+`;
+
+const Circale = styled.div`
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  background: #353535;
+`;
+
+const Socail = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  h2 {
+    margin: 2rem;
+  }
+`;
 export default ContactUs;

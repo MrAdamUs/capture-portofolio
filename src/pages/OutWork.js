@@ -92,9 +92,9 @@ const Movie = styled(motion.div)`
   }
 `;
 
-const Hide = styled.div`
-  overflow: hidden;
-`;
+// const Hide = styled.div`
+//   overflow: hidden;
+// `;
 //Fram Animation
 const Frame1 = styled(motion.div)`
   position: fixed;
