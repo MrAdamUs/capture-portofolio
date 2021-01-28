@@ -15,15 +15,20 @@ import {
   slider,
   sliderContainer,
 } from '../animation';
+import { useScroll } from '../components/useScroll';
 
 const OutWork = () => {
+  const [element, controls] = useScroll();
+  const [element2, controls2] = useScroll();
+  const [element3, controls3] = useScroll();
   return (
     <Work
       exit='exit'
       variants={pageAnimation}
       initial='hidden'
       animate='show'
-      style={{ background: '#ebe6e6' }}
+      style={{ background: '#cccccc' }}
+      layout='position'
     >
       <motion.div variants={sliderContainer}>
         <Frame1 variants={slider}></Frame1>
@@ -31,29 +36,28 @@ const OutWork = () => {
         <Frame3 variants={slider}></Frame3>
         <Frame4 variants={slider}></Frame4>
       </motion.div>
-      <Movie>
+      <Movie ref={element} variants={fade} animate={controls} initia='hidden'>
         <Link to='/work/the-athlete'>
           <motion.h2 variants={fade}>The Athlate</motion.h2>
           <motion.div className='line' variants={lineAnim}></motion.div>
-          <Hide>
-            <motion.img variants={photoAnim} src={athlete} alt='athlete' />
-          </Hide>
+
+          <motion.img variants={photoAnim} src={athlete} alt='athlete' />
         </Link>
       </Movie>
-      <Movie>
+
+      <Movie ref={element2} variants={fade} animate={controls2} initia='hidden'>
         <Link to='/work/good-times'>
           <h2>The Racer</h2>
-          <div className='line'></div>
-
-          <img src={theracer} alt='thercer' />
+          <motion.div className='line' variants={lineAnim}></motion.div>
+          <motion.img variants={photoAnim} src={theracer} alt='athlete' />
         </Link>
       </Movie>
-      <Movie>
+
+      <Movie ref={element3} variants={fade} animate={controls3} initia='hidden'>
         <Link to='/work/the-racer'>
           <h2>Good Times</h2>
-          <div className='line'></div>
-
-          <img src={goodtimes} alt='goodtime' />
+          <motion.div className='line' variants={lineAnim}></motion.div>
+          <motion.img variants={photoAnim} src={goodtimes} alt='athlete' />
         </Link>
       </Movie>
     </Work>
@@ -73,7 +77,7 @@ const Work = styled(motion.div)`
   }
 `;
 
-const Movie = styled.div`
+const Movie = styled(motion.div)`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
@@ -84,6 +88,7 @@ const Movie = styled.div`
     width: 100%;
     height: 70vh;
     object-fit: cover;
+    border-radius: 50px;
   }
 `;
 
@@ -94,9 +99,9 @@ const Hide = styled.div`
 const Frame1 = styled(motion.div)`
   position: fixed;
   left: 0;
-  top: 10%;
+  top: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: #fffebf;
   z-index: 2;
 `;
