@@ -7,6 +7,7 @@ import MovieDetail from './pages/MovieDetail';
 //Router
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import D3js from './pages/D3js';
 
 function App() {
   const location = useLocation();
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path='/contact'>
             <ContactUs />
+          </Route>
+          <Route path='/D3js'>
+            <D3js />
           </Route>
         </Switch>
       </AnimatePresence>
