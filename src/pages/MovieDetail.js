@@ -4,15 +4,17 @@ import { useHistory } from 'react-router-dom';
 import { MovieState } from '../movieState';
 import { motion } from 'framer-motion';
 import { pageAnimation } from '../animation';
+import ScrollTop from '../components/ScrollTop';
 
 const MovieDetail = () => {
   const history = useHistory();
   const url = history.location.pathname;
-  const [movies, setMovies] = useState(MovieState);
+  const [movies, setMovies] = useState([]);
   const [movie, setMovie] = useState(null);
 
   //useEffect
   useEffect(() => {
+    setMovies(MovieState);
     const currentMovie = movies.filter((stateMovie) => stateMovie.url === url);
     setMovie(currentMovie[0]);
   }, [movies, url]);
@@ -43,6 +45,7 @@ const MovieDetail = () => {
           </ImageDisplay>
         </Details>
       )}
+      <ScrollTop />
     </div>
   );
 };
@@ -73,6 +76,10 @@ const Awards = styled.div`
   margin: 5rem 10rem;
   align-items: center;
   justify-content: space-around;
+  @media (max-width: 1300px) {
+    display: block;
+    margin: 2rem 2rem;
+  }
 `;
 
 const AwardStyle = styled.div`

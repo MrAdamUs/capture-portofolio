@@ -16,7 +16,7 @@ import {
   sliderContainer,
 } from '../animation';
 import { useScroll } from '../components/useScroll';
-
+import ScrollTop from '../components/ScrollTop';
 const OutWork = () => {
   const [element, controls] = useScroll();
   const [element2, controls2] = useScroll();
@@ -60,6 +60,7 @@ const OutWork = () => {
           <motion.img variants={photoAnim} src={goodtimes} alt='athlete' />
         </Link>
       </Movie>
+      <ScrollTop />
     </Work>
   );
 };
@@ -74,6 +75,9 @@ const Work = styled(motion.div)`
   a {
     text-decoration: none;
     color: #000;
+  }
+  @media (max-width: 1300px) {
+    padding: 2rem;
   }
 `;
 

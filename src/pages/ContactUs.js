@@ -46,6 +46,13 @@ const ContactStyle = styled(motion.div)`
   padding: 5rem 10rem;
   color: #353535;
   min-height: 90vh;
+  @media (max-width: 1300px) {
+    padding: 2rem;
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+  }
 `;
 
 const Title = styled.div`
@@ -61,6 +68,10 @@ const Circale = styled.div`
   width: 3rem;
   height: 3rem;
   background: #353535;
+  @media (max-width: 1300px) {
+    width: 1rem;
+    height: 1rem;
+  }
 `;
 
 const Socail = styled(motion.div)`
